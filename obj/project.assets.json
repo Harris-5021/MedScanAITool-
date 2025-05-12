@@ -4217,11 +4217,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\harri\\Documents\\GitHub\\MedScan\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\harri\\Documents\\GitHub\\MedScanAITool-\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\harri\\Documents\\GitHub\\MedScan\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\harri\\Documents\\GitHub\\MedScanAITool-\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\harri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\harri\\Documents\\GitHub\\MedScan\\obj\\",
+      "outputPath": "C:\\Users\\harri\\Documents\\GitHub\\MedScanAITool-\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
