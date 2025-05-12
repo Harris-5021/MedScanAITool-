@@ -1,0 +1,212 @@
+@{
+    ViewData["Title"] = "View Reports";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - MedScan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #1d0635;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            margin-left: 0;
+        }
+        .navbar-logo {
+            margin-right: 20px;
+        }
+        .navbar-logo img {
+            height: 40px;
+            vertical-align: middle;
+        }
+        .navbar-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        .navbar-links a:hover {
+            background-color: #fff;
+            color: #1a1a1a;
+        }
+        .container {
+            padding-top: 80px;
+            min-height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #2c0051 0%, #1a0036 100%);
+        }
+        .dashboard-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #9d4edd, #5a189a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #9d4edd, #5a189a);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+        }
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .alert-success {
+            background-color: rgba(92, 184, 92, 0.2);
+            border: 1px solid #5cb85c;
+            color: #5cb85c;
+        }
+        .alert-info {
+            background-color: rgba(91, 192, 222, 0.2);
+            border: 1px solid #5bc0de;
+            color: #5bc0de;
+        }
+        .alert-error {
+            background-color: rgba(217, 83, 79, 0.2);
+            border: 1px solid #d9534f;
+            color: #d9534f;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .table th {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .table a {
+            color: #9d4edd;
+            text-decoration: none;
+        }
+        .table a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <img src="/images/medscan_logo.jpg" alt="MedScan Logo">
+            </a>
+            <div class="navbar-links">
+                <a href="/">Home</a>
+                <a href="/Account/Login">Login</a>
+                <a href="/Account/Register">Register for free!</a>
+                <a href="/Home/Privacy">About Us and Privacy</a>
+                <a href="/Account/Logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-box">
+            <h1>Your X-Ray Reports</h1>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-@ViewBag.MessageType">
+                    @ViewBag.Message
+                </div>
+            }
+
+            @if (ViewBag.Pdfs != null && ViewBag.Pdfs.Count > 0)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Report ID</th>
+                            <th>Patient Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Created At</th>
+                            <th>View Report</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var pdf in ViewBag.Pdfs)
+                        {
+                            // Parse the created_at string into a DateTime object
+                            var createdAt = DateTime.Parse(pdf["created_at"].ToString());
+                            // Format the date in UK format (DD/MM/YYYY HH:mm:ss)
+                            var formattedDate = createdAt.ToString("dd/MM/yyyy HH:mm:ss");
+
+                            <tr>
+                                <td>@pdf["pdf_id"]</td>
+                                <td>@pdf["patient_name"]</td>
+                                <td>@pdf["patient_age"]</td>
+                                <td>@pdf["patient_gender"]</td>
+                                <td>@formattedDate</td>
+                                <td><a href="http://127.0.0.1:8000/@pdf["file_path"]" target="_blank">View PDF</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No reports found.</p>
+            }
+
+            <div style="margin-top: 20px;">
+                <a href="@Url.Action("UserDashboard", "Dashboard")" class="btn-primary">Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

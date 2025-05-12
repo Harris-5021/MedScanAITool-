@@ -1,0 +1,203 @@
+@{
+    ViewData["Title"] = "X-Ray Analysis Dashboard";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - MedScan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #1d0635;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            margin-left: 0;
+        }
+        .navbar-logo {
+            margin-right: 20px;
+        }
+        .navbar-logo img {
+            height: 40px;
+            vertical-align: middle;
+        }
+        .navbar-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        .navbar-links a:hover {
+            background-color: #fff;
+            color: #1a1a1a;
+        }
+        .container {
+            padding-top: 80px;
+            min-height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #2c0051 0%, #1a0036 100%);
+        }
+        .dashboard-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #9d4edd, #5a189a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #9d4edd, #5a189a);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .alert-success {
+            background-color: rgba(92, 184, 92, 0.2);
+            border: 1px solid #5cb85c;
+            color: #5cb85c;
+        }
+        .alert-error {
+            background-color: rgba(217, 83, 79, 0.2);
+            border: 1px solid #d9534f;
+            color: #d9534f;
+        }
+        
+
+select.form-control option {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <img src="/images/medscan_logo.jpg" alt="MedScan Logo">
+            </a>
+            <div class="navbar-links">
+                <a href="/">Home</a>
+                <a href="/Account/Login">Login</a>
+                <a href="/Account/Register">Register for free!</a>
+                <a href="/Home/Privacy">About Us and Privacy</a>
+                <a href="/Account/Logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-box">
+            <h1>X-Ray Analysis Dashboard</h1>
+            <div class="alert alert-@(ViewBag.MessageType ?? "success")">
+                <p>@(ViewBag.Message ?? "Model loaded successfully. You can now analyze X-ray images.")</p>
+            </div>
+
+            <form asp-controller="Dashboard" asp-action="UploadXRay" method="post" enctype="multipart/form-data">
+                <h3>Patient Details</h3>
+                <div class="form-group">
+                    <label for="patientName">Patient Name</label>
+                    <input type="text" name="patientName" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="patientAge">Age</label>
+                    <input type="number" name="patientAge" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="patientGender">Gender</label>
+                    <select name="patientGender" class="form-control">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="xrayImage">X-Ray Image</label>
+                    <input type="file" name="xrayImage" class="form-control" accept="image/*" required />
+                </div>
+                <button type="submit" class="btn-primary">Analyze Image</button>
+            </form>
+
+            @if (ViewBag.PdfUrl != null)
+            {
+                <div style="margin-top: 20px;">
+                    <p>Analysis Report:</p>
+                    <a href="@ViewBag.PdfUrl" target="_blank" class="btn-primary">View PDF</a>
+                </div>
+            }
+
+            <div style="margin-top: 20px;">
+                <a href="@Url.Action("ViewReports", "Dashboard")" class="btn-primary">View My Reports</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - MedScan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <style>
+        body, html {
+            padding-left: 0;
+            margin-left: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Completely custom navbar styles */
+        .navbar {
+    background-color: #1d0635;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    padding-left: 0; /* Set this to 0 */
+    margin-left: 0; /* Ensure no margin */
+}
+
+        .navbar-logo {
+            margin-right: 10px;
+        }
+
+        .navbar-logo img {
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .navbar-links a:hover {
+            background-color: #fff;
+            color: #1a1a1a;
+        }
+
+        /* Existing styles */
+        .privacy-content {
+            padding-top: 80px;
+        }
+
+        .section {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        p, ul {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-size: 1.5em;
+        }
+
+        .privacy-icon {
+            font-size: 15rem;
+            position: absolute;
+            opacity: 0.05;
+        }
+
+        #contact-email {
+            color: #4ecdc4;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        #contact-email::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4ecdc4;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        #contact-email:hover {
+            color: #ff6b6b;
+        }
+
+        #contact-email:hover::after {
+            transform: scaleX(1);
+        }
+
+        .last-updated {
+            margin-top: 2rem;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        @@keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <img src="/images/medscan_logo.jpg" alt="MedScan Logo">
+            </a>
+            <div class="navbar-links">
+                <a href="/">Home</a>
+                <a href="/Account/Login">Login</a>
+                <a href="/Account/Register">Register for free!</a>
+                <a href="/Home/Privacy">About Us and Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Privacy Content -->
+    <div class="privacy-content">
+        <div class="section" id="section1">
+            <div class="content">
+                <h2>Information We Collect</h2>
+                <ul>
+                    <li>Basic account information (name, email)</li>
+                    <li>Usage data to improve our services</li>
+                </ul>
+            </div>
+            <div class="privacy-icon floating" style="top: 10%; left: 10%;">🔒</div>
+            <div class="privacy-icon floating" style="bottom: 10%; right: 10%;">📊</div>
+        </div>
+
+        <div class="section" id="section2">
+            <div class="content">
+                <h2>How We Use Your Information</h2>
+                <ul>
+                    <li>To provide and improve our medical imaging analysis services</li>
+                    <li>To communicate important updates about our platform</li>
+                </ul>
+            </div>
+            <div class="privacy-icon floating" style="top: 20%; right: 15%;">🔬</div>
+            <div class="privacy-icon floating" style="bottom: 20%; left: 15%;">📈</div>
+        </div>
+
+        <div class="section" id="section3">
+            <div class="content">
+                <h2>Data Security & Your Rights</h2>
+                <p>We employ industry-standard security measures to protect your information from unauthorized access or disclosure.</p>
+                <p>You have the right to access, correct, or delete your personal data. Contact us for any privacy-related requests.</p>
+                <p>If you have any questions about this privacy policy, please contact us at <a id="contact-email" href="mailto:c1012826@hallam.shu.ac.uk">c1012826@hallam.shu.ac.uk</a>.</p>
+                <div class="last-updated">Last updated: [date]</div>
+            </div>
+            <div class="privacy-icon floating" style="top: 15%; left: 20%;">🛡️</div>
+            <div class="privacy-icon floating" style="bottom: 15%; right: 20%;">⚖️</div>
+        </div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.section').forEach((section, index) => {
+            const content = section.querySelector('.content');
+            const h2 = content.querySelector('h2');
+            const paragraphs = content.querySelectorAll('p, ul');
+
+            gsap.fromTo(h2, 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top center',
+                        end: 'bottom center',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+
+            gsap.fromTo(paragraphs, 
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top center',
+                        end: 'bottom center',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>

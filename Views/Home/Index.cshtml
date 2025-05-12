@@ -1,0 +1,204 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - MedScan</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+
+.navbar-logo {
+    position: absolute;
+    top: 50px;
+    left: 685px;
+    z-index: 1001;
+}
+
+.navbar-logo img {
+    width: auto;
+    height: 150px; /* Adjust this value to set the desired logo size */
+}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: #1a237e;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .side-menu {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #1a237e;
+            transition: 0.3s;
+            z-index: 999;
+            padding-top: 60px;
+        }
+        .side-menu.active {
+            left: 0;
+        }
+        .side-menu ul {
+            list-style: none;
+            padding: 50px 0;
+        }
+        .side-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 15px 30px;
+        }
+        .side-menu ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #ffa500;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .features {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .feature-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .feature-item {
+            flex-basis: calc(33.333% - 20px);
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="navbar-logo">
+                <img src="/images/medscan_logo.jpg" alt="MedScan Logo">
+            </a>
+    <button class="menu-toggle">☰</button>
+    
+    <nav class="side-menu">
+        <ul>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register for free!</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About Us and Privacy</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>&nbsp;</h1>
+                <h1>&nbsp;</h1>
+
+                <p>Experience the future of healthcare with MedScan's advanced technology.</p>
+                <p>                                  Fast diagnoses, High accuracy.</p>
+                <li class="cta-button">
+                        <a class="cta-button" asp-area="" asp-controller="Account" asp-action="Register">New user? Click here to get started!</a>
+                    </li>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Our Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>AI Analysis</h3>
+                        <p>Advanced algorithms for accurate and rapid image interpretation.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Secure Platform</h3>
+                        <p>Each user has a secure, individual account to protect patient information and maintain strict data confidentiality</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Accessibility</h3>
+                        <p>Access the tool from anywhere, on any device with internet connection</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sideMenu = document.querySelector('.side-menu');
+
+        menuToggle.addEventListener('click', () => {
+            sideMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!sideMenu.contains(e.target) && e.target !== menuToggle) {
+                sideMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
