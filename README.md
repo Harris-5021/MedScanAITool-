@@ -1,7 +1,5 @@
 # MedScan: AI-Powered Pneumonia Detection
 
-MedScan is an advanced web application that uses artificial intelligence to analyse chest X-ray images and detect the presence of pneumonia.
-This system employs a trained neural network model to provide fast, accurate diagnoses, assisting healthcare professionals in their decision-making process.
 
 ## Features
 
@@ -52,3 +50,10 @@ No License currently, subject to change.
 
 MedScan is designed as a supportive tool for healthcare professionals and is only a personal project developed by a non-professional. This application
 should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider for medical concerns.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- This project was created for my final year project as part of my university degree. 
+- Below are three recorded videos that were made throughout the project.
+- Video 1: 
+
