@@ -1,4 +1,10 @@
 # MedScan: AI-Powered Pneumonia Detection
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- This project was created for my final year project as part of my university degree. 
+- Below are three recorded videos that were made throughout the project.
+- Video 1 THE PROBLEM AND SOLUTION: https://drive.google.com/file/d/13aEr7YugOf1XLT7jd78kxIM36hFwACYN/view?usp=sharing
+- Video 2 ENGINEERING APPROACHES: https://drive.google.com/file/d/1dBi7ER1GZIpxz5rSWOpg-nVdXF07R8jP/view?usp=sharing
+- Video 3 REFLECTION: https://drive.google.com/file/d/1GgwaTvjlx0ThS823SDU5yNeiHq66CJs7/view?usp=sharing
 
 
 ## Features
@@ -44,16 +50,9 @@
 
 No License currently, subject to change.
 
-
-
 ## Disclaimer
 
 MedScan is designed as a supportive tool for healthcare professionals and is only a personal project developed by a non-professional. This application
 should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider for medical concerns.
 
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-- This project was created for my final year project as part of my university degree. 
-- Below are three recorded videos that were made throughout the project.
-- Video 1: 
 
