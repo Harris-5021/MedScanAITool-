@@ -6,6 +6,9 @@
 - Video 2 ENGINEERING APPROACHES: https://drive.google.com/file/d/1dBi7ER1GZIpxz5rSWOpg-nVdXF07R8jP/view?usp=sharing
 - Video 3 REFLECTION: https://drive.google.com/file/d/1GgwaTvjlx0ThS823SDU5yNeiHq66CJs7/view?usp=sharing
 
+  -Vision transformer model
+<img width="282" height="423" alt="image" src="https://github.com/user-attachments/assets/6791fceb-9e79-49f1-9567-b8f5f5fa7cf5" />
+
 
 ## Features
 
