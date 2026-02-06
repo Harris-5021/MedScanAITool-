@@ -41,9 +41,6 @@ This system employs a trained neural network model to provide fast, accurate dia
 6. Wait for the analysis to complete.
 7. View the results, including the pneumonia detection and probability score.
 
-## Contributing
-
-We welcome contributions to improve MedScan.
 
 ## License
 
